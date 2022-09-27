@@ -1,0 +1,47 @@
+<p>not-found works!</p>
+<ul>
+    <a routerLink="/auth"> 
+        Ir a Login
+    </a>
+    <li routerLink="/authLazy/login"> 
+        Ir a Login Lazy
+    </li>
+    <li routerLink="/authLazy/enroll">
+        Ir a Registro
+    </li>
+    <li routerLink="/pokedex">
+        Pokedex
+    </li>
+    <li routerLink="/pokedex/add">
+        Agregar
+    </li>
+    <li routerLink="/pokedex/edit/1">
+        Editar
+    </li>
+    <li routerLink="/pokedex/find">
+        Buscar
+    </li>
+    <li routerLink="/pokedex/list">
+        Lista
+    </li>
+    <li routerLink="/pokedex/pokemon/2">
+        Pokemon
+    </li>
+</ul>
+
+<form [formGroup]="form" (submit)="logIn()">
+    <label for="">Usuario:</label>
+    <input type="text" formControlName="user" name="user">
+    <br>
+    <label for="">Contraseña:</label>
+    <input type="text" formControlName="password" name="password">
+    <br>
+    <button [disabled]="!form.valid">LogIn</button>
+</form>
+<div *ngIf="mesageBlock == true">
+    <p>El usuario y/o la contraseña son invalidos</p>
+</div>
+<button (click)="logOut()">
+    LogOut
+</button>
+<p> Session {{this.showSession()}}</p>
